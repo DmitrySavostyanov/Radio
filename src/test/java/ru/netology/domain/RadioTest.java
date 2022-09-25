@@ -2,10 +2,7 @@ package ru.netology.domain;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import ru.netology.domain.Radio;
-
 public class RadioTest {
-
     @ParameterizedTest
     @CsvSource(value = {
             "Critical path analysis; 5; 5",
@@ -18,12 +15,11 @@ public class RadioTest {
             "Boundary value analysis 5; 9; 9",
             "Boundary value analysis 6; 10; 0",
     }, delimiter = ';')
-    void setSelectStation(String nameTest, int inputSelectStation, int expectedStation) {
+    void setSelectStation(int inputSelectStation, int expectedStation) {
         Radio radio = new Radio();
         radio.setSelectStation(inputSelectStation);
         Assertions.assertEquals(radio.getCurrentStation(), expectedStation);
     }
-
     @ParameterizedTest
     @CsvSource(value = {
             "Critical path analysis; 5; 6",
@@ -32,7 +28,7 @@ public class RadioTest {
             "Boundary value analysis 3; 8; 9",
             "Boundary value analysis 4; 9; 0",
     }, delimiter = ';')
-    void setNextStation(String nameTest, int oldCurrentStation, int expectedStation) {
+    void setNextStation(int oldCurrentStation, int expectedStation) {
         Radio radio = new Radio();
         radio.setCurrentStation(oldCurrentStation);
         radio.setNextStation();
@@ -47,13 +43,12 @@ public class RadioTest {
             "Boundary value analysis 3; 8; 7",
             "Boundary value analysis 4; 9; 8",
     }, delimiter = ';')
-    void setPrevCurrentStation(String nameTest, int oldCurrentStation, int expectedStation) {
+    void setPrevCurrentStation(int oldCurrentStation, int expectedStation) {
         Radio radio = new Radio();
         radio.setCurrentStation(oldCurrentStation);
         radio.setPrevStation();
         Assertions.assertEquals(radio.getCurrentStation(), expectedStation);
     }
-
     @ParameterizedTest
     @CsvSource(value = {
             "Critical path analysis; 6; 7",
@@ -62,7 +57,7 @@ public class RadioTest {
             "Boundary value analysis 3; 9; 10",
             "Boundary value analysis 4; 10; 10",
     }, delimiter = ';')
-    void setVolumeUp(String nameTest, int oldCurrentVolume, int expectedVolume) {
+    void setVolumeUp(int oldCurrentVolume, int expectedVolume) {
         Radio radio = new Radio();
         radio.setCurrentVolume(oldCurrentVolume);
         radio.setVolumeUp();
@@ -77,11 +72,10 @@ public class RadioTest {
             "Boundary value analysis 3; 9; 8",
             "Boundary value analysis 4; 10; 9",
     }, delimiter = ';')
-    void setVolumeDown(String nameTest, int oldCurrentVolume, int expectedVolume) {
+    void setVolumeDown(int oldCurrentVolume, int expectedVolume) {
         Radio radio = new Radio();
         radio.setCurrentVolume(oldCurrentVolume);
         radio.setVolumeDown();
         Assertions.assertEquals(radio.getCurrentVolume(), expectedVolume);
     }
-
 }
