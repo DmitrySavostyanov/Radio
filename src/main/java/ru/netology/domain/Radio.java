@@ -1,4 +1,4 @@
-package ru.netology;
+package ru.netology.domain;
 
 public class Radio {
     static final int maxStation = 9;//max, конечная станция

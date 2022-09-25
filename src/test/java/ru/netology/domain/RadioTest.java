@@ -1,7 +1,8 @@
-package ru.netology;
+package ru.netology.domain;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import ru.netology.domain.Radio;
 
 public class RadioTest {
 
